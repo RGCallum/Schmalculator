@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>newcalc</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+</head>
+<body>
+    <h1>Schmalculator</h1>
+        <div class="calbody">
+           
+    <form>
+       
+<input type="text" id = "display" placeholder="0">
+
+<div class="bstyle">
+
+<button type="button" value = "reset" id = "c" onClick= "form.reset()">C</button>
+<button type="button" value= "avg" id = "b" onclick = "avg()" >AVG</button>
+<button type="button" value="%" id = "modulo" onClick="input(value)">%</button>
+<button type="button" value="+" id = "plus" onClick="input(value)">+</button>
+<button type="button" value="7" onClick="input(value)">7</button>
+<button type="button" value="8" onClick="input(value)">8</button>
+<button type="button" value="9" onClick="input(value)">9</button>
+<button type="button" value="-" id = "minus" onClick="input(value)">-</button>
+
+<button type="button" value="4" onClick="input(value)">4</button>
+<button type="button" value="5" onClick="input(value)">5</button>
+<button type="button" value="6" onClick="input(value)">6</button>
+<button type="button" value="*" id = "multiply" onClick="input(value)">*</button>
+<button type="button" value="1" onClick="input(value)">1</button>
+<button type="button" value="2" onClick="input(value)">2</button>
+<button type="button" value="3" onClick="input(value)">3</button>
+<button type="button" value="/" id = "divide" onClick="input(value)">/</button>
+
+<button type="button" value="0" onClick="input(value)">0</button>
+<button type="button" value = "." id = "period" onclick = "input(value)">.</button>
+<button type="button" id = "eq" onClick="result()">=</button>
+</div>
+
+    </form>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
