@@ -65,7 +65,7 @@ button:hover{
     box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
   }
 
- #c, #b, #period, #plus, #minus, #multiply, #divide, #eq{
+ #c, #period, #plus, #minus, #multiply, #divide, #modulo, #eq{
     background-color: rgb(0, 225, 255);
    
 }
@@ -78,7 +78,7 @@ button:hover{
     background-color: #32D96C;
 }
 
-#modulo {
+#b {
     background-color: rgb(240, 218, 93);
 }
 
