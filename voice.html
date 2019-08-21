@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="icon" href="/calFavicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container"> <!--page container -->
+        <div class="text-box" contenteditable="true">
+            <input type="text" id = "display" contenteditable="true" placeholder="0">
+        </div> <!--text box which will contain spoken text -->
+        <i class="fa fa-microphone"></i> <!-- microphone icon to be clicked before speaking -->
+      </div>
+      <audio class="sound" src="chime.mp3"></audio> <!-- sound to be played when we click icon => http://soundbible.com/1598-Electronic-Chime.html -->
+      
+      <h2>Schmalculator</h2>
+      <div class="calbody">
+         
+  <form>
+     
+
+<div class="bstyle">
+
+<button type="button" value = "reset" id = "c" onClick= "form.reset()">C</button>
+<!-- <button type="button" value="%" id = "modulo" onClick="calculate(value)">%</button> -->
+<button type="button" value= "avg" id = "b" onclick = "avg()" >🗣</button>
+<button type="button" value="%" id = "modulo" onClick="calculate(value)">%</button>
+
+<button type="button" value="+" id = "plus" onClick="calculate(value)">+</button>
+<button type="button" value="7" onClick="calculate(value)">7</button>
+<button type="button" value="8" onClick="calculate(value)">8</button>
+<button type="button" value="9" onClick="calculate(value)">9</button>
+<button type="button" value="-" id = "minus" onClick="calculate(value)">-</button>
+
+<button type="button" value="4" onClick="calculate(value)">4</button>
+<button type="button" value="5" onClick="calculate(value)">5</button>
+<button type="button" value="6" onClick="calculate(value)">6</button>
+<button type="button" value="*" id = "multiply" onClick="calculate(value)">*</button>
+<button type="button" value="1" onClick="calculate(value)">1</button>
+<button type="button" value="2" onClick="calculate(value)">2</button>
+<button type="button" value="3" onClick="calculate(value)">3</button>
+<button type="button" value="/" id = "divide" onClick="calculate(value)">/</button>
+
+<button type="button" value="0" onClick="calculate(value)">0</button>
+<button type="button" value = "." id = "period" onclick = "calculate(value)">.</button>
+<button type="button" id = "eq" onClick="showResult()">=</button>
+</div>
+
+  </form>
+
+</div>
+  <style>
+body {
+  background: #1e2440;
+  color: #f2efe2;
+  font-size: 16px;
+  /* font-family: 'Kaushan Script', cursive;
+  font-family: 'Shadows Into Light', cursive; */
+}
+.container {
+  position: relative;
+  border: 1px solid #f2efe2;
+  width: 40vw;
+  max-width: 60vw;
+  margin: 0 auto;
+  border-radius: 0.1rem;
+  background: #f2efe2;
+  padding: 0.2rem 1rem;
+  color: #1e2440;
+  overflow: scroll;
+  margin-top: 10vh;
+}
+.text-box {
+  max-height: 70vh;
+  overflow: scroll;
+}
+.text-box:focus {
+  outline: none;
+}
+.text-box p {
+  border-bottom: 1px dotted black;
+  margin: 0px !important;
+}
+.fa {
+  color: white;
+  background: #1e2440;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 1rem;
+  float: right;
+  width: 2rem;
+  height: 2rem;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.calbody{
+    background-color: rgb(31, 30, 31);
+    background-image: linear-gradient(to bottom right, rgb(141, 141, 141), black);
+    background-size: cover;
+    border: inset rgb(248, 248, 248)13px;
+    box-shadow: inset 2px 2px 2px rgb(2, 2, 2);
+    border-radius: 20px;
+    width: 35%;
+    height: 680px;
+    padding: 0px 125px;
+    display: grid;
+    justify-content: center;
+    align-content: space-between;
+    text-align: center;
+    margin: auto;
+   
+}
+
+form{
+    margin-top: 9%;
+    margin-left: 2%;
+}
+.bstyle{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 78px);
+    grid-template-rows: repeat(5, 90px);    
+    grid-gap: 15px;
+    
+    
+
+}
+
+
+
+button{
+    border-radius: 20px;
+    background-color: rgb(243, 105, 204);
+    width: 95%;
+    height: 80%;
+    border: solid rgb(184, 183, 183)1px;
+    box-shadow: 2px 3px 2px rgb(43, 42, 42);  
+    font-size: 190%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: 'Orbitron', sans-serif;
+    /* background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgba(3, 3, 3, 0)); */
+
+    
+}
+
+button:hover{
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  }
+
+ #c, #period, #plus, #minus, #multiply, #divide, #modulo, #eq{
+    background-color: rgb(0, 225, 255);
+   
+}
+
+#b{
+    font-size: 120%;
+}
+
+#c, #eq{
+    background-color: #32D96C;
+}
+
+#b {
+    background-color: rgb(240, 218, 93);
+}
+
+#eq{
+    width: 213%;
+    margin-left: 0%;
+}
+
+
+#display{
+    background-color: rgb(189, 224, 189);
+    border: thick, black;
+    border-radius: 20px;
+    height: 90px;
+    width: 370px;
+    text-align: right;
+    margin-bottom: 30px;
+    margin-left: -2%;
+    font-size: 300%;
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+
+}
+
+h1, h2{
+    font-size: 300%;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(248, 248, 248);
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+    
+}
+@media (max-width: 768px) {
+  .container {
+    width: 85vw;
+    max-width: 85vw;
+  }
+.text-box {
+    max-height: 55vh;
+  }
+  
+}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+  <script>
+   window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+const synth = window.speechSynthesis;
+const recognition = new SpeechRecognition();
+
+const icon = document.querySelector('i.fa.fa-microphone')
+let paragraph = document.createElement('p');
+let container = document.querySelector('.text-box');
+// let container = document.querySelector('#display');
+
+container.appendChild(paragraph);
+const sound = document.querySelector('.sound');
+
+icon.addEventListener('click', () => {
+  sound.play();
+  dictate();
+});
+
+const dictate = () => {
+  recognition.start();
+  recognition.onresult = (event) => {
+    const speechToText = event.results[0][0].transcript;
+    
+    paragraph.textContent = speechToText;
+
+    if (event.results[0].isFinal) {
+
+      if (speechToText.includes('what is the time')) {
+          speak(getTime);
+      };
+      
+      if (speechToText.includes('what is today\'s date')) {
+          speak(getDate);
+      };
+      
+      if (speechToText.includes('what is the weather in')) {
+          getTheWeather(speechToText);
+      };
+      if (speechToText.includes('add || multiply || divide || substract || plus || minus || times || divided || clear')) {
+          calculate(speechToText);
+      };
+      if (speechToText.includes('equals')) {
+        showResult(speechToText);
+      };
+    }
+  }
+}
+
+const speak = (action) => {
+  utterThis = new SpeechSynthesisUtterance(action());
+  synth.speak(utterThis);
+};
+
+const getTime = () => {
+  const time = new Date(Date.now());
+  return `the time is ${time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`
+};
+
+const getDate = () => {
+  const time = new Date(Date.now())
+  return `today is ${time.toLocaleDateString()}`;
+};
+const calculate = function input(x){
+   return document.getElementById("display").value+=x;
+   
+};
+const showResult = function result(){
+    var x = document.getElementById("display").value;
+    return document.getElementById("display").value = eval(x);
+};
+
+const getTheWeather = (speech) => {
+  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${speech.split(' ')[5]}&appid=58b6f7c78582bffab3936dac99c31b25&units=metric`) 
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(weather){
+    if (weather.cod === '404') {
+      utterThis = new SpeechSynthesisUtterance(`I cannot find the weather for ${speech.split(' ')[5]}`);
+      synth.speak(utterThis);
+      return;
+    }
+    utterThis = new SpeechSynthesisUtterance(`the weather condition in ${weather.name} is mostly full of ${weather.weather[0].description} at a temperature of ${weather.main.temp} degrees Celcius`);
+    synth.speak(utterThis);
+  });
+};
+  </script> 
+</body>
+</html>
