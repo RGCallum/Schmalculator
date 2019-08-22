@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.schmalculator" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Schmalculator</name>
+<widget id="com.schmalculator" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Schmalculator2</name>
     <description>
-        A voice calculator
+        A voice calculator that works?
     </description>
     <author email="sceneitpix@gmail.com" href="http://rgcallum.herokuapp.com">
     SceneIt Dev Team
@@ -29,5 +29,5 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-        <icon src="calculator.png" />
+        <!-- <icon src="calculator.png" /> -->
 </widget>
