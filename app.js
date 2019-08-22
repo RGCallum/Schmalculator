@@ -80,7 +80,7 @@ for(var i =0;i<number.length;i++){
 var microphone = document.getElementById('microphone');
 microphone.onclick=function(){
 	microphone.classList.add("record");
-	var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+	var recognition = new (window.plugins.SpeechRecognition || window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
 	recognition.lang = 'en-US';
 	recognition.start();
 	operations = {"plus":"+",
@@ -90,7 +90,32 @@ microphone.onclick=function(){
 				 "divide":"/",
 				 "divided":"/",
 				 "reminder":"%"}
-	
+    
+                 recognition.isRecognitionAvailable(function(available){
+                    if(!available){
+                        console.log("Sorry, not available");
+                    }
+                
+                    // Check if has permission to use the microphone
+                    recognition.hasPermission(function (isGranted){
+                        if(isGranted){
+                            startRecognition();
+                        }else{
+                            // Request the permission
+                            recognition.requestPermission(function (){
+                                // Request accepted, start recognition
+                                startRecognition();
+                            }, function (err){
+                                console.log(err);
+                            });
+                        }
+                    }, function(err){
+                        console.log(err);
+                    });
+                    
+                }, function(err){
+                    console.log(err);
+                });
 	recognition.onresult = function(event){
 		var input = event.results[0][0].transcript;
 		for(property in operations){
@@ -114,3 +139,8 @@ function evaluate(input){
 		document.getElementById("output-value").innerText = "";
 	}
 }
+
+
+
+
+
