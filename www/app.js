@@ -80,7 +80,7 @@ for(var i =0;i<number.length;i++){
 var microphone = document.getElementById('microphone');
 microphone.onclick=function(){
 	microphone.classList.add("record");
-	var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+	var recognition = new (window.plugins.speechRecognition || window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
 	recognition.lang = 'en-US';
 	recognition.start();
 	operations = {"plus":"+",
