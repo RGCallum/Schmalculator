@@ -274,14 +274,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
-        "id": "cordova-plugin-speechrecognition.SpeechRecognition",
-        "pluginId": "cordova-plugin-speechrecognition",
-        "merges": [
-            "window.plugins.speechRecognition"
-        ]
-    },
-    {
         "file": "plugins/phonegap-plugin-speech-recognition/www/browser/SpeechRecognition.js",
         "id": "phonegap-plugin-speech-recognition.SpeechRecognition",
         "pluginId": "phonegap-plugin-speech-recognition",
@@ -489,9 +481,9 @@ module.exports.metadata =
     "cordova-plugin-media-capture": "1.2.0",
     "cordova-plugin-device": "1.1.7",
     "cordova-plugin-vibration": "2.1.6",
-    "cordova-plugin-speechrecognition": "1.1.2",
     "phonegap-plugin-speech-recognition": "0.3.0",
-    "cordova-plugin-compat": "1.2.0"
+    "cordova-plugin-compat": "1.2.0",
+    "cordova-plugin-speechrecognition": "1.1.2"
 }
 // BOTTOM OF METADATA
 });
